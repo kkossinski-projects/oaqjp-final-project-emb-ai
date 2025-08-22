@@ -18,6 +18,11 @@ def emotion_detector(text_to_analyse):  # Define a function
     sadness_score = formatted_response['emotionPredictions'][0]['emotion']['sadness']
 
     # Establishing which is the strongest emotion
+        # Extract the emotion dictionary
+        emotions = formatted_response['emotionPredictions'][0]['emotion']
+
+        # Find the emotion with the highest value
+        strongest_emotion = max(emotions, key=emotions.get)
     
     # Returning a dictionary containing sentiment analysis results
 
@@ -27,5 +32,5 @@ def emotion_detector(text_to_analyse):  # Define a function
     'fear': fear_score,
     'joy': joy_score,
     'sadness': sadness_score,
-    'dominant_emotion': '<name of the dominant emotion>'
+    'dominant_emotion': strongest_emotion
     }
