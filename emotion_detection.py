@@ -1,4 +1,5 @@
-import requests  # Import the requests library to handle HTTP requests
+import requests # Import the requests library to handle HTTP requests
+import json  
 
 def emotion_detector(text_to_analyse):  # Define a function
     url= 'https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict'
@@ -18,11 +19,11 @@ def emotion_detector(text_to_analyse):  # Define a function
     sadness_score = formatted_response['emotionPredictions'][0]['emotion']['sadness']
 
     # Establishing which is the strongest emotion
-        # Extract the emotion dictionary
-        emotions = formatted_response['emotionPredictions'][0]['emotion']
+    # Extract the emotion dictionary
+    emotions = formatted_response['emotionPredictions'][0]['emotion']
 
-        # Find the emotion with the highest value
-        strongest_emotion = max(emotions, key=emotions.get)
+    # Find the emotion with the highest value
+    strongest_emotion = max(emotions, key=emotions.get)
     
     # Returning a dictionary containing sentiment analysis results
 
