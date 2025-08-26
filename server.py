@@ -18,6 +18,10 @@ def sent_analyzer():
     joy = response.get('joy', 0)
     sadness = response.get('sadness', 0)
     dominant_emotion = response.get('dominant_emotion', 'Unknown')
+    
+    # Check if dominant_emotion is None or missing
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!"
 
     # Format the output string as per the example
     output = (
@@ -35,4 +39,4 @@ def render_index_page():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5004)
+    app.run(host='0.0.0.0', port=5006)
